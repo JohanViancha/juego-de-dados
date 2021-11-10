@@ -1,6 +1,6 @@
 <div class="content-app">
 
-  <h2 class="jugador">Jugador 1</h2>
+  <h2 class="jugador" [ngStyle]="{'border-color': !turno?'rgb(68, 145, 209)':'#FFF'}">Jugador 1</h2>
   <section class="jg1 content-numeros">
     <div [ngClass]="{'tachado': !numerosJugador1.includes(1)}" class="jg1__numero numero">1</div>
     <div [ngClass]="{'tachado': !numerosJugador1.includes(2)}" class="jg1__numero numero">2</div>
@@ -16,26 +16,22 @@
   </section>
 
   <section class="seccion-juego">
-    <button *ngIf="index===0" class="tirar" (click)="iniciarTurno()">{{tirar}}</button>
+    <button [ngStyle]="{'visibility': index===0?'visible':'hidden'}" class="tirar" (click)="iniciarTurno()">{{tirar}}</button>
     <div class="dados">
       <div class="dado1"><img [src]="dado1" alt="Dado"></div>
       <div class="dado2"><img [src]="dado2" alt="Dado"></div>
     </div>
     <div class="form-operaciones">
-      <input type="number" min="1" max="10" value="1" class="operadores operador1" [(ngModel)]="numero1" disabled>
-      <select name="" id="" class="operacion">
+      <input type="number" min="1" max="10" value="1" class="operadores operador1" [(ngModel)]="numero1">
+      <select name="" id="" [(ngModel)]="tipoOperacion" class="operacion">
         <option value="+">+</option>
         <option value="-">-</option>
         <option value="%">/</option>
         <option value="*">*</option>
       </select>
-      <input type="number" min="1" max="10" value="1" class="operadores operador2"  [(ngModel)]="numero2" disabled>
-      <button class="btn-calcular">Tapar</button>
+      <input type="number" min="1" max="10" value="1" class="operadores operador2"  [(ngModel)]="numero2">
+      <button class="btn-calcular" (click)="realizarOperacion()" name="realizaOperacion" [disabled]="!realizaOperacion" >Tapar</button>
     </div>
-    <span id="ganador">
-
-    </span>
-    
   </section>
   <section class="jg2 content-numeros">
     <div [ngClass]="{'tachado': !numerosJugador2.includes(1)}" class="jg2__numero numero">1</div>
@@ -50,5 +46,5 @@
     <div [ngClass]="{'tachado': !numerosJugador2.includes(10)}" class="jg2__numero numero">10</div>
   </section>
 
-  <h2 class="jugador">Jugador 2</h2>
+  <h2 class="jugador" [ngStyle]="{'border-color': turno?'rgb(68, 145, 209)':'#FFF'}">Jugador 2</h2>
 </div>
