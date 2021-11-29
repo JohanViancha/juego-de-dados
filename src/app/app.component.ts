@@ -17,8 +17,8 @@ export class AppComponent {
     tirar:string;
     index:number;
     tipoOperacion:string;
-    numerosJugador1:number[] = [8];
-    numerosJugador2:number[] = [8,9];
+    numerosJugador1:number[] = [1,2,3,4,5,6,7,8,9,10];
+    numerosJugador2:number[] = [1,2,3,4,5,6,7,8,9,10];
     tacharNumero:number;
     realizaOperacion:boolean;
     toast:any;
@@ -74,8 +74,6 @@ export class AppComponent {
             this.dado2 = `../assets/img/dice${this.numero2}.png`;   
             this.index++;
           if(this.index==5){
-            this.dado1 = `../assets/img/dice${this.numero1}.svg`;
-            this.dado2 = `../assets/img/dice${this.numero2}.svg`;   
             clearInterval(miTiro);
             resolve('Terminado');
           }

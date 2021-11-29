@@ -52,9 +52,7 @@
 .tirar:hover{
     opacity: 0.8;
 }
-.dado1 img, .dado2 img{
-    width: 200px;
-}
+
 .dados{
     display: flex;
     flex-direction: row;
@@ -62,11 +60,16 @@
     gap: 10px;
 }
 
+.dado1 img, .dado2 img{
+    width: 100%;
+}
+
 .seccion-juego{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     gap: 10px;
+    width: 300px;
 }
 
 .form-operaciones{
@@ -94,3 +97,31 @@
     color: #FFFF;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+@media screen and (max-width: 806px) {
+    .content-numeros{ 
+        width: 100%;
+        gap: 0px;
+    }
+    .numero{
+        border: 1px solid #FFF;
+    }
+  }
+
+  @media screen and (max-width: 322px) {
+       .seccion-juego{
+           width: 100%;
+       }
+       .form-operaciones{
+           flex-direction: column;
+           gap: 10px;
+           width: 50%;
+           margin: auto;
+           text-align: center;
+       }
+
+       .btn-calcular{
+           margin: auto;
+       }
+  }
+    
